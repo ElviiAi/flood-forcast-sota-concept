@@ -23,7 +23,10 @@ It might make a lot more sense to train the model regressively on a contigious s
 
 Regressive: Feed it data as I preprocessed it in real time, and allow it to spit out 24 hours or so of flood warning forcast by taking the embedding and applying the standard "tokenisation" back to the (a) next time step in the input data [in LLM speak: predict the next word] (b) less-standrad tokenization to predict the probability of a flood, incorporated by adding an extra embedding layer with some ReLU and softmax 
 
-Autoregressive: Use the pre-trained "extra embedding layer with some ReLU and softmax" layer as one path way for the model output, with the other one being autoregression -> this way you'd get prediction of how the "world model" evolves and as a sideeffect; if you get a flood or not. Can be useful to check if the model is applicable to a new region, without having to train/fine-tune it.
+
+### Predictive/Training Regime 1
+
+Autoregressive: Use the pre-trained "extra embedding layer with some ReLU and softmax" layer as one path way for the model output, with the other one being autoregression -> this way you'd get prediction of how the "world model" evolves and as a sideeffect; if you get a flood or not. Can be useful to check if the model is applicable to a new region, without having to train/fine-tune it. Akeen to instruction fine-tuning in LLMs, the DPO (see the original paper for details: https://arxiv.org/pdf/2305.18290) can come in at the final embedded feature level, thus avoiding unlearning what's been previously learned (better at generalizing) and requiring only non-flood data to predict flood data (potentially - this would need to  be rigorously proven) in a new region.
 
 
 ## Future Work and some Methodology
