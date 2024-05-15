@@ -1,4 +1,3 @@
-```markdown
 # Predictive Flood Modeling with Multimodal Transformer-based Architecture
 
 This repository contains a proof-of-concept (PoC) for applying transformer-based architectures to predictive flood modeling using multimodal data sources. The goal of this project is to demonstrate the potential of leveraging state-of-the-art techniques, such as unrolling 2D data and combining it with time series weather data, to effectively incorporate both 2D and 1D multivariate modalities into a single time-forecast network.
